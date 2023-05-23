@@ -3,3 +3,58 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    position: relative;
+    width: 50%;
+}
+
+.group-img{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+img{
+    margin-top: 30px;
+    width: 50%;
+}
+
+.slide{
+    display: none;
+}
+
+#avanti, #indietro{
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    padding: 3px 4px;
+}
+
+#avanti{
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 10px;
+}
+
+#indietro{
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-top: 10px;
+}
+
+.slide.d-block{
+    display: block;
+}
+
+img:nth-child(3), img:nth-child(4){
+    width: 100%;
+}
