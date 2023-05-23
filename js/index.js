@@ -1,5 +1,5 @@
 //ARRAY
-const images = [
+let images = [
     './img/01.webp',
     './img/02.webp',
     './img/03.webp',
@@ -8,13 +8,37 @@ const images = [
 ];
 
 //VARIABILI
-const imgGroup = document.querySelector('.group-img');
-const avanti = document.querySelector('.avanti');
-const indietro = document.querySelector('.indietro');
-const img = document.createElement("img", "slide");
-const dBlock = document.createElement("d-block");
-
+let imgGroup = document.querySelector('.group-img');
+let avanti = document.querySelector('.avanti');
+let indietro = document.querySelector('.indietro');
+let img = '';
+let slides = document.getElementsByClassName('slide')
+let indietroButton = document.querySelector('#indietro')
+let avantiButton = document.querySelector('#avanti')
+//CICLO
 for(i = 0; i < images.length; i++){
-
-    if()
+    img += `<img class='slide' src='${images[i]}'>`
 }
+
+let elemento = 0;
+imgGroup.innerHTML = img;
+
+slides[0].classList.add('d-block');
+
+//EVENTO
+avantiButton.addEventListener('click', function(){
+
+    slides[elemento].classList.remove('d-block');
+    elemento = (elemento + 1) % slides.length;
+    slides[elemento].classList.add('d-block');
+
+})
+
+indietroButton.addEventListener('click', function(){
+
+    slides[elemento].classList.remove('d-block');
+    elemento = (elemento - 1 + slides.length) % slides.length;
+    slides[elemento].classList.add('d-block');
+        
+})
+
