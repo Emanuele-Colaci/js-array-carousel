@@ -12,15 +12,16 @@ let imgGroup = document.querySelector('.group-img');
 let avanti = document.querySelector('.avanti');
 let indietro = document.querySelector('.indietro');
 let img = '';
+let img1 = '';
 let slides = document.getElementsByClassName('slide')
 let indietroButton = document.querySelector('#indietro')
 let avantiButton = document.querySelector('#avanti')
+let elemento = 0;
 //CICLO
 for(i = 0; i < images.length; i++){
     img += `<img class='slide' src='${images[i]}'>`
 }
 
-let elemento = 0;
 imgGroup.innerHTML = img;
 
 slides[0].classList.add('d-block');
@@ -41,4 +42,6 @@ indietroButton.addEventListener('click', function(){
     slides[elemento].classList.add('d-block');
         
 })
+
+//THUMBNAILS
 
