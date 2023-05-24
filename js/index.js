@@ -9,39 +9,47 @@ let images = [
 
 //VARIABILI
 let imgGroup = document.querySelector('.group-img');
-let avanti = document.querySelector('.avanti');
-let indietro = document.querySelector('.indietro');
+let thumbnails = document.querySelector('.thumbnails');
 let img = '';
-let img1 = '';
-let slides = document.getElementsByClassName('slide')
-let indietroButton = document.querySelector('#indietro')
-let avantiButton = document.querySelector('#avanti')
+let thumbnailsImg = '';
 let elemento = 0;
+let avanti = document.getElementById('avanti')
+let indietro = document.getElementById('indietro')
 //CICLO
 for(i = 0; i < images.length; i++){
     img += `<img class='slide' src='${images[i]}'>`
+    thumbnailsImg += `<img class='active' src='${images[i]}'>`
 }
 
 imgGroup.innerHTML = img;
+thumbnails.innerHTML = thumbnailsImg;
 
-slides[0].classList.add('d-block');
+document.getElementsByClassName('slide')[elemento].classList.add('d-block');
+document.getElementsByClassName('active')[elemento].classList.add('border');
 
 //EVENTO
-avantiButton.addEventListener('click', function(){
-
-    slides[elemento].classList.remove('d-block');
-    elemento = (elemento + 1) % slides.length;
-    slides[elemento].classList.add('d-block');
-
+avanti.addEventListener('click', function(){
+    if(elemento === images.length -1){
+        elemento = 0;
+    }else{
+        elemento++;
+    }
+    document.querySelector('.slide.d-block').classList.remove('d-block')
+    document.getElementsByClassName('slide')[elemento].classList.add('d-block')
+    document.querySelector('.border.active').classList.remove('border')
+    document.getElementsByClassName('active')[elemento].classList.add('border')
+    
 })
 
-indietroButton.addEventListener('click', function(){
+indietro.addEventListener('click', function(){
+    if(elemento === 0){
+        elemento = images.length -1;
+    }else{
+        elemento--;
+    }
+    document.querySelector('.slide.d-block').classList.remove('d-block')
+    document.getElementsByClassName('slide')[elemento].classList.add('d-block')
+    document.querySelector('.border.active').classList.remove('border')
+    document.getElementsByClassName('active')[elemento].classList.add('border')
 
-    slides[elemento].classList.remove('d-block');
-    elemento = (elemento - 1 + slides.length) % slides.length;
-    slides[elemento].classList.add('d-block');
-        
 })
-
-//THUMBNAILS
-
