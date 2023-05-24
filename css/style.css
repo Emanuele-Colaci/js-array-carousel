@@ -39,7 +39,7 @@
 
 .thumbnails{
     height: 30rem;
-    width: 50%; 
+    width: 20%; 
     flex-direction: column; 
 }
 
@@ -52,15 +52,15 @@
 
 #avanti{
     bottom: 5%;
-    left: 86%;
-    transform: translate(-86%, -5%);
+    left: 93%;
+    transform: translate(-93%, -5%);
     z-index: 100;
 }
 
 #indietro{
     top: 5%;
-    left: 84%;
-    transform: translate(-84%, -5%);
+    left: 93%;
+    transform: translate(-93%, -5%);
     z-index: 100;
 }
 
